@@ -1,0 +1,12 @@
+from socket import *
+
+server_address = ('', 6969)
+server_socket = ('AF_INET', 'SOCK_STREAM')
+
+server_socket.listen(1)
+
+while True:
+    connection_socket, client_address = server_socket.accept()
+    print("Connecting to ", str(client_address), " ...")
+    request = connection_socket.recv(1024)
+    connection_socket.close()
